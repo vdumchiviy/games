@@ -27,10 +27,18 @@ function gameLogic() {
     } else {
         currentScore -= 1;
         document.querySelector(".current-score-value").textContent = currentScore;
-        if (currentScore == 0) {
-            document.querySelector(".message").textContent = "You LOOSE!";
+
+        let msg = "";
+        if (guessNumber > pickedNumber) {
+            msg = "Guessed number is bigger than picked one!"
         } else {
-            document.querySelector(".message").textContent = "Try AGAIN!";
+            msg = "Guessed number is less than picked one!"
+        }
+
+        if (currentScore == 0) {
+            document.querySelector(".message").textContent = msg + " " + "You LOOSE!";
+        } else {
+            document.querySelector(".message").textContent = msg + " " + "Try AGAIN!";
         }
     }
 
